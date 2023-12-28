@@ -11,7 +11,7 @@ raj
 images
 temp_images
 textFiles
-ocr.py
+app.py
 
 # Distribution / packaging
 .Python

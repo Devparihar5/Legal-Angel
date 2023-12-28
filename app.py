@@ -1,4 +1,6 @@
 from flask import Flask, request, jsonify
+from PyPDF2 import PdfReader
+from io import BytesIO
 from PIL import Image
 import pytesseract as pt
 import os
@@ -10,6 +12,14 @@ pt.pytesseract.tesseract_cmd = 'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
 def extract_text_from_image(img_path):
     img = Image.open(img_path)
     text = pt.image_to_string(img, lang="hin")
+    return text
+
+def extract_text_from_pdf(pdf_file):
+    text = ""
+    pdf_reader = PdfReader(pdf_file)
+    for page_num in range(len(pdf_reader.pages)):
+        page = pdf_reader.pages[page_num]
+        text += page.extract_text()
     return text
 
 @app.route('/extract-text', methods=['POST'])
@@ -27,16 +37,21 @@ def extract_text():
 
         if file:
             # Save the uploaded file to a temporary folder
-            upload_folder = "./temp_images"
+            upload_folder = "./temp_files"
             os.makedirs(upload_folder, exist_ok=True)
-            img_path = os.path.join(upload_folder, file.filename)
-            file.save(img_path)
+            file_path = os.path.join(upload_folder, file.filename)
+            file.save(file_path)
 
-            # Extract text from the uploaded image
-            extracted_text = extract_text_from_image(img_path)
+            # Extract text based on file type (image or pdf)
+            extracted_text = ""
+            if file_path.lower().endswith(('.png', '.jpg', '.jpeg', '.gif')):
+                extracted_text = extract_text_from_image(file_path)
+            elif file_path.lower().endswith('.pdf'):
+                with open(file_path, 'rb') as pdf_file:
+                    extracted_text = extract_text_from_pdf(pdf_file)
 
-            # Remove the temporary image file
-            os.remove(img_path)
+            # Remove the temporary file
+            os.remove(file_path)
 
             # Return the extracted text in JSON format
             return jsonify({'text': extracted_text})

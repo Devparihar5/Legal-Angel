@@ -10,8 +10,24 @@ This Flask application provides a simple API for extracting text from uploaded i
 
 - Python 3.x
 - Flask (`pip install Flask`)
-- Tesseract OCR (install Tesseract and set the correct path in the script)
-    - https://digi.bib.uni-mannheim.de/tesseract/tesseract-ocr-w64-setup-5.3.3.20231005.exe
+- Tesseract OCR: The heart of our program. As per Wikipedia, it is an OCR tool developed by HP and released to Open Source in 2005. You can download it here:
+  
+  - For Windows: https://github.com/UB-Mannheim/tesseract/wiki
+  
+  - For Linux: https://github.com/tesseract-ocr/tesseract
+  
+  **NOTE: Please note that when asked to Choose components:**
+
+  - Select Additional Script Data, expand it, and select Devanagari script.
+
+
+  - Under Additional Language Data, select Hindi.
+
+  - Once installed, add the install location: “C:\Program Files\Tesseract-OCR” (for Windows it's default)
+
+
+
+
 
 ### Installation
 

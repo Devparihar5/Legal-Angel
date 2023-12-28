@@ -17,14 +17,13 @@ This Flask application provides a simple API for extracting text from uploaded i
   - For Linux: https://github.com/tesseract-ocr/tesseract
   
   **NOTE: Please note that when asked to Choose components:**
-
   - Select Additional Script Data, expand it, and select Devanagari script.
 
     ![img-1](https://github.com/Devparihar5/RJPOLICE_HACK_668_NeuralNomards_4/blob/test/demo-images/ocr-demo/img_1.png)
 
   - Under Additional Language Data, select Hindi.
 
-    ![img-2](https://github.com/Devparihar5/RJPOLICE_HACK_668_NeuralNomards_4/blob/test/demo-images/ocr-demo/img_2.png)
+    ![img_2](https://github.com/Devparihar5/RJPOLICE_HACK_668_NeuralNomards_4/blob/test/demo-images/ocr-demo/img_2.png)
     
   - Once installed, add the install location: “C:\Program Files\Tesseract-OCR” (for Windows its default)
 

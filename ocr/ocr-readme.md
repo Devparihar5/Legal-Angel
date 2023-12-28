@@ -20,13 +20,13 @@ This Flask application provides a simple API for extracting text from uploaded i
 
   - Select Additional Script Data, expand it, and select Devanagari script.
 
+    ![img-1](https://github.com/Devparihar5/RJPOLICE_HACK_668_NeuralNomards_4/blob/test/demo-images/ocr-demo/img_1.png)
 
   - Under Additional Language Data, select Hindi.
 
-  - Once installed, add the install location: “C:\Program Files\Tesseract-OCR” (for Windows it's default)
-
-
-
+    ![img-2](https://github.com/Devparihar5/RJPOLICE_HACK_668_NeuralNomards_4/blob/test/demo-images/ocr-demo/img_2.png)
+    
+  - Once installed, add the install location: “C:\Program Files\Tesseract-OCR” (for Windows its default)
 
 
 ### Installation
@@ -37,8 +37,17 @@ This Flask application provides a simple API for extracting text from uploaded i
    git clone https://github.com/Devparihar5/RJPOLICE_HACK_668_NeuralNomards_4.git
    cd RJPOLICE_HACK_668_NeuralNomards_4
    ```
-
-2. Install dependencies:
+2. Create a virtual enviorment and activate it for isolation
+   ```bash
+   python -m venv test
+   ```
+   and
+   
+   ```bash
+   .\test\Scripts\activate
+   ```
+  
+3. Install dependencies:
 
    ```bash
    pip install -r requirements.txt
@@ -82,3 +91,7 @@ This Flask application provides a simple API for extracting text from uploaded i
    }
 
   ```
+
+  or
+
+  ![img-3](https://github.com/Devparihar5/RJPOLICE_HACK_668_NeuralNomards_4/blob/test/demo-images/ocr-demo/demo.png)

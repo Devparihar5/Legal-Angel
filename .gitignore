@@ -9,7 +9,6 @@ __pycache__/
 #venvs
 raj
 images
-fir-data
 temp_images
 textFiles
 ocr.py

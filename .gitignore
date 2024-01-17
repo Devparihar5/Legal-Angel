@@ -9,9 +9,12 @@ __pycache__/
 #venvs
 raj
 images
+test
 temp_images
 textFiles
 app.py
+temp_files
+extra-test-code
 
 # Distribution / packaging
 .Python
@@ -42,6 +45,7 @@ MANIFEST
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
+scraper.log
 
 # Unit test / coverage reports
 htmlcov/

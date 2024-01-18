@@ -4,7 +4,6 @@ from PIL import Image
 import pytesseract as pt
 import os
 import re
-import pickle
 import json
 
 from langchain.embeddings import HuggingFaceEmbeddings
@@ -25,6 +24,12 @@ embeddings = HuggingFaceEmbeddings(
     model_kwargs=model_kwargs, # Pass the model configuration options
     encode_kwargs=encode_kwargs # Pass the encoding options
 )
+
+try:
+    ipc_model = FAISS.load_local("D:/RJPOLICE_HACK_668_NeuralNomards_4/BACKEND/faiss_index", embeddings)
+except Exception as model_error:
+     jsonify({"error": f"Error loading or using IPC model: {str(model_error)}"}), 500
+
 
 class OCRExtractor:
     def __init__(self):
@@ -102,16 +107,16 @@ def extract_text():
         ocr_app.logger.error(f'Error during text extraction: {str(e)}')
         return jsonify({'error': str(e)})
 
+
 @ocr_app.route('/ipc-sections', methods=['POST'])
 def prediction():
     try:
         # Assuming extract_text() returns the FIR details as a string
         fir_details = extract_text()
-        print(fir_details)
+        # print(fir_details)
 
         # Assuming FAISS.load_local and ipc_model.similarity_search may raise exceptions
         try:
-            ipc_model = FAISS.load_local("D:/RJPOLICE_HACK_668_NeuralNomards_4/faiss_index", embeddings)
             predicted_ipc = ipc_model.similarity_search(fir_details, num_results=4)
         except Exception as model_error:
             return jsonify({"error": f"Error loading or using IPC model: {str(model_error)}"}), 500

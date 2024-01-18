@@ -71,7 +71,12 @@ Legal-Angel is a Flask-based web application that provides OCR (Optical Characte
 
 - **Gemini API Key:**
   - Set your Gemini API key in the environment variable `gemini_api_key`.
- 
+
+
+#### Demo 
+[Click here to watch the demo video](https://github.com/Devparihar5/RJPOLICE_HACK_668_NeuralNomards_4/blob/main/latest-record-video_HwLUAzru.mp4)
+
+
 #### Sample-Images
 ![Alt text](https://github.com/Devparihar5/RJPOLICE_HACK_668_NeuralNomards_4/blob/main/BACKEND/demo-images/frontend-demo/image_0.png)
 ![image-1](https://github.com/Devparihar5/RJPOLICE_HACK_668_NeuralNomards_4/blob/main/BACKEND/demo-images/frontend-demo/image_1.png)

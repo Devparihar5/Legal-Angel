@@ -119,7 +119,7 @@ torch==2.1.2
 torchvision==0.16.2
 tqdm==4.66.1
 traits==6.3.2
-transformers==4.36.2
+transformers==4.38.0
 typing-inspect==0.9.0
 typing_extensions==4.9.0
 tzdata==2023.4
